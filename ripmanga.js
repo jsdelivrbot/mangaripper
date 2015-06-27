@@ -35,12 +35,13 @@ $.YQL("select * from html where url='" + MANGAHERE_URL + "'", function(data) {
 		mangapagelinksarray.push(JSON.stringify(data.query.results.body.section.article.div.div[1].div[2].ul[0].li[temp].span[0].a.href).substring(1, JSON.stringify(data.query.results.body.section.article.div.div[1].div[2].ul[0].li[temp].span[0].a.href).length - 1));
 	}
 
-	mangapage.innerHTML = addlinks;
 	document.getElementsByTagName('body')[0].appendChild(mangapage);
 
 	$.YQL("select * from html where url='" + mangapagelinksarray[mangapagelinksarray.length-1] + "'", function(data) {
 		console.log(mangapagelinksarray[mangapagelinksarray.length-2]);
 		console.log(JSON.stringify(data.query.results.body.section[1].a.img.src).substring(1, JSON.stringify(data.query.results.body.section[1].a.img.src).length - 1));
+		addlinks += "<img src=\"" + JSON.stringify(data.query.results.body.section[1].a.img.src).substring(1, JSON.stringify(data.query.results.body.section[1].a.img.src).length - 1) + "\"></img>";
+		mangapage.innerHTML = addlinks;
 		$.holdReady( false );
 	});
 });
