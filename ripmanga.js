@@ -15,6 +15,7 @@ $.YQL = function(query, callback) {
 		url: url,
 		dataType: 'json',
 		async: false,
+                cache: false,
 		success: callback
 	});
 
