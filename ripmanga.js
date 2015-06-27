@@ -40,4 +40,4 @@ function setup() {
 			image(tempimg, 0, 0);
 		});
 	});
-}
+} 
