@@ -1,0 +1,16 @@
+<html>
+<head>
+</head>
+<body>
+	<script>
+		link = window.location.href.split("http://");
+		link.shift();
+		link.shift();
+		images = "";
+		for (temp = 0; temp < link.length; temp++) {
+			images += "<img src=\"http://" + link[temp] + "\"></img>";
+		}
+		document.getElementsByTagName('body').src = images;
+	</script>
+</body>
+</html>
