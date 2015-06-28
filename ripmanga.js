@@ -57,4 +57,4 @@ DOMReady($.YQL("select * from html where url='" + MANGAHERE_URL + "'", function(
 		addlinks += "<img src=\"" + JSON.stringify(data.query.results.body.section[1].a.img.src).substring(1, JSON.stringify(data.query.results.body.section[1].a.img.src).length - 1) + "\"></img>";
 		mangapage.innerHTML = addlinks;
 	});
-}););
+}));
