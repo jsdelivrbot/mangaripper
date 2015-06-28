@@ -5,6 +5,10 @@
 		img {
 			width: 100%;
 		}
+		.frame {
+			width: 777px;
+			height: 1017px;
+		}
 	</style>
 </head>
 <body>
@@ -16,7 +20,7 @@
 		link.shift();
 		images = "";
 		for (temp = 0; temp < link.length; temp++) {
-			images += "<img src=\"http://" + link[temp] + "\"></img>";
+			images += "<div class=\"frame\"><img src=\"http://" + link[temp] + "\"></img></div>";
 		}
 		codedlinks = document.createElement('div');
 		codedlinks.innerHTML = images;
