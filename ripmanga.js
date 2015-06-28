@@ -65,7 +65,7 @@ $.YQL("select * from html where url='" + MANGAHERE_URL + "'", function(data) {
 
 function updatenexturl(currentnexturl) {
 	$.YQL("select * from html where url='" + currentnexturl + "'", function(data) {
-		console.log(JSON.stringify(data.query.results.body.section[1].a.href).substring(1, JSON.stringify(data.query.results.body.section[1].a.href).length - 1));
+		mangapage.innerHTML = JSON.stringify(data.query.results.body.section[1].a.href).substring(1, JSON.stringify(data.query.results.body.section[1].a.href).length - 1);
 		producedlink += JSON.stringify(data.query.results.body.section[1].a.img.src).substring(1, JSON.stringify(data.query.results.body.section[1].a.img.src).length - 1);
 		if (JSON.stringify(data.query.results.body.section[1].a.href).substring(1, JSON.stringify(data.query.results.body.section[1].a.href).length - 1) != "javascript:void(0);") {
 			updatenexturl(JSON.stringify(data.query.results.body.section[1].a.href).substring(1, JSON.stringify(data.query.results.body.section[1].a.href).length - 1));
