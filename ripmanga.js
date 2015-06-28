@@ -52,28 +52,19 @@ $.YQL("select * from html where url='" + MANGAHERE_URL + "'", function(data) {
 
 	document.getElementsByTagName('body')[0].appendChild(mangapage);
 
-	$.YQL("select * from html where url='" + mangapagelinksarray[mangapagelinksarray.length-1] + "'", function(data) {
-		console.log(mangapagelinksarray[mangapagelinksarray.length-2]);
-		console.log(JSON.stringify(data.query.results.body.section[1].a.href).substring(1, JSON.stringify(data.query.results.body.section[1].a.href).length - 1));
-		console.log(JSON.stringify(data.query.results.body.section[1].a.img.src).substring(1, JSON.stringify(data.query.results.body.section[1].a.img.src).length - 1));
-		producedlink += "&a=" + JSON.stringify(data.query.results.body.section[1].a.img.src).substring(1, JSON.stringify(data.query.results.body.section[1].a.img.src).length - 1);
-		nexturl = JSON.stringify(data.query.results.body.section[1].a.href).substring(1, JSON.stringify(data.query.results.body.section[1].a.href).length - 1);
-		console.log(nexturl);
-		updatenexturl(nexturl);
-	});
+	updatenexturl(mangapagelinksarray[mangapagelinksarray.length-1]);
 });
 
 function updatenexturl(currentnexturl) {
 	$.YQL("select * from html where url='" + currentnexturl + "'", function(data) {
-		mangapage.innerHTML = JSON.stringify(data.query.results.body.section[1].a.href).substring(1, JSON.stringify(data.query.results.body.section[1].a.href).length - 1);
 		producedlink += JSON.stringify(data.query.results.body.section[1].a.img.src).substring(1, JSON.stringify(data.query.results.body.section[1].a.img.src).length - 1);
 		if (JSON.stringify(data.query.results.body.section[1].a.href).substring(1, JSON.stringify(data.query.results.body.section[1].a.href).length - 1) != "javascript:void(0);") {
+			mangapage.innerHTML = JSON.stringify(data.query.results.body.section[1].a.href).substring(1, JSON.stringify(data.query.results.body.section[1].a.href).length - 1);
 			updatenexturl(JSON.stringify(data.query.results.body.section[1].a.href).substring(1, JSON.stringify(data.query.results.body.section[1].a.href).length - 1));
 		}
 		else {
 			producedlink = LZString.compressToEncodedURIComponent(producedlink);
 			producedlink = "http://chilly.blue/mangaripper/result.html?&a=" + producedlink;
-			console.log(producedlink);
 			getShortURL(producedlink, function(shortURL) {
 				mangapage.innerHTML = "<a href=\"http://www.web2pdfconvert.com/engine?curl=" + escape(shortURL) + "&title=" + "DownloadedManga" + "&ref=imagebutton\">Download Manga</a>";
 			});
