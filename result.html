@@ -1,10 +1,13 @@
 <html>
 <head>
+	<script src="https://cdn.rawgit.com/pieroxy/lz-string/master/libs/lz-string.min.js"></script>
 </head>
 <body>
 	<script>
-		link = window.location.href.split("http://");
+		link = window.location.href.split("&a=");
 		link.shift();
+		link[0] = LZString.decompressFromEncodedURIComponent(link[0]);
+		link = link[0].split("http://");
 		link.shift();
 		images = "";
 		for (temp = 0; temp < link.length; temp++) {
