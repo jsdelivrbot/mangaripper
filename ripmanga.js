@@ -2,6 +2,22 @@ MANGAHERE_URL = "http://www.mangahere.co/manga/oyasumi_punpun/";
 mangapagelinksarray = [];
 producedlink = "";
 
+function getShortURL(long_url, func) {
+	accessToken =  '79f0eaaab371279e8fe0793e5b9e1e4b97be28b6';
+	url = 'https://api-ssl.bitly.com/v3/shorten?access_token=' + accessToken + '&longUrl=' + encodeURIComponent(long_url);
+
+    $.getJSON(
+        url, 
+        { 
+            "format": "json",
+        },
+        function(response)
+        {
+            func(response.data.url);
+        }
+    );
+}
+
 $.YQL = function(query, callback) {
 
 	if (!query || !callback) {
@@ -57,16 +73,9 @@ function updatenexturl(currentnexturl) {
 		else {
 			producedlink = LZString.compressToEncodedURIComponent(producedlink);
 			producedlink = "http://chilly.blue/mangaripper/result.html?&a=" + producedlink;
-			jQuery.urlShortener.settings.apiKey='AIzaSyC2wkuVq8hMbDOxVzdMzFI_X9UAGAkjTNs';
-			jQuery.urlShortener({
-    			longUrl: producedlink,
-    			success: function (shortUrl) {
-    			    mangapage.innerHTML = shortUrl;
-    			},
-    			error: function(err)
-    			{
-     			   alert(JSON.stringify(err));
-    			}
+			console.log(producedlink);
+			getShortURL(producedlink, function(shortURL) {
+				mangapage.innerHTML = "<a href=\"http://www.web2pdfconvert.com/engine?curl=" + escape(shortURL) + "&title=" + "DownloadedManga" + "&ref=imagebutton\">Download Manga</a>";
 			});
 		}
 	});
