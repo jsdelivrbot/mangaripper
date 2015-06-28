@@ -57,7 +57,7 @@ function updatenexturl(currentnexturl) {
 		else {
 			producedlink = LZString.compressToEncodedURIComponent(producedlink);
 			producedlink = "http://chilly.blue/mangaripper/result.html?&a=" + producedlink;
-			jQuery.urlShortener.settings.apiKey='';
+			jQuery.urlShortener.settings.apiKey='AIzaSyC2wkuVq8hMbDOxVzdMzFI_X9UAGAkjTNs';
 			jQuery.urlShortener({
     			longUrl: producedlink,
     			success: function (shortUrl) {
