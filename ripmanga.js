@@ -56,8 +56,18 @@ function updatenexturl(currentnexturl) {
 		}
 		else {
 			producedlink = LZString.compressToEncodedURIComponent(producedlink);
-			console.log(producedlink);
-			mangapage.innerHTML = "http://chilly.blue/mangaripper/result.html?&a=" + producedlink;
+			producedlink = "http://chilly.blue/mangaripper/result.html?&a=" + producedlink;
+			jQuery.urlShortener.settings.apiKey='';
+			jQuery.urlShortener({
+    			longUrl: producedlink,
+    			success: function (shortUrl) {
+    			    mangapage.innerHTML = shortUrl;
+    			},
+    			error: function(err)
+    			{
+     			   alert(JSON.stringify(err));
+    			}
+			});
 		}
 	});
 }
