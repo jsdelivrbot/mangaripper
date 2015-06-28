@@ -10,7 +10,7 @@
 		for (temp = 0; temp < link.length; temp++) {
 			images += "<img src=\"http://" + link[temp] + "\"></img>";
 		}
-		document.getElementsByTagName('body').src = images;
+		document.body.innerHTML = images;
 	</script>
 </body>
 </html>
