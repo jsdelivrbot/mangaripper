@@ -52,7 +52,7 @@ $.YQL("select * from html where url='" + MANGAHERE_URL + "'", function(data) {
 
 	document.getElementsByTagName('body')[0].appendChild(mangapage);
 
-	updatenexturl(mangapagelinksarray[mangapagelinksarray.length-1]);
+	updatenexturl(mangapagelinksarray[mangapagelinksarray.length-2]);
 });
 
 function updatenexturl(currentnexturl) {
