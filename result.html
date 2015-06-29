@@ -2,10 +2,6 @@
 <head>
 	<script src="https://cdn.rawgit.com/pieroxy/lz-string/master/libs/lz-string.min.js"></script>
 	<style>
-		img {
-			max-width: 100%;
-    			max-height: 100%;
-		}
 		.frame {
 			width: 1024px;
 			height: 1450px;
@@ -21,7 +17,7 @@
 		link.shift();
 		images = "";
 		for (temp = 0; temp < link.length; temp++) {
-			images += "<div class=\"frame\"><img src=\"http://" + link[temp] + "\"></img></div>";
+			images += "<div class=\"frame\" style=\"background-image: url(\"http://" + link[temp] + "\"); background-repeat: no-repeat; background-size: contain;\"></div>";
 		}
 		codedlinks = document.createElement('div');
 		codedlinks.innerHTML = /*screen.width + "</br>" + */images;
