@@ -71,7 +71,7 @@ function updatenexturl(currentnexturl) {
 			producedlink = LZString.compressToEncodedURIComponent(producedlink);
 			producedlink = "http://chilly.blue/mangaripper/result.html?&a=" + producedlink;
 			getShortURL(producedlink, function(shortURL) {
-				mangapage.innerHTML = "<a href=\"http://FreeHTMLtoPDF.com/?convert=" + escape(shortURL) + ">Download Manga</a>";
+				mangapage.innerHTML = "<a href=\"http://FreeHTMLtoPDF.com/?convert=" + escape(shortURL) + "\">Download Manga</a>";
 			});
 		}
 	});
