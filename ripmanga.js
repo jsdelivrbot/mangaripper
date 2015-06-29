@@ -1,4 +1,5 @@
 MANGAHERE_URL = "http://www.mangahere.co/manga/oyasumi_punpun/";
+CHAPTER = 1;
 mangapagelinksarray = [];
 producedlink = "";
 
@@ -52,7 +53,7 @@ $.YQL("select * from html where url='" + MANGAHERE_URL + "'", function(data) {
 
 	document.getElementsByTagName('body')[0].appendChild(mangapage);
 
-	updatenexturl(mangapagelinksarray[mangapagelinksarray.length-2]);
+	updatenexturl(mangapagelinksarray[mangapagelinksarray.length - CHAPTER]);
 });
 
 function updatenexturl(currentnexturl) {
