@@ -18,7 +18,7 @@
 		images = "";
 		for (temp = 0; temp < link.length; temp++) {
 			console.log(link[temp]);
-			images += "<div class=\"frame\" style=\"background-image: url(\"http://" + link[temp] + "\"); background-repeat: no-repeat; background-size: contain;\"></div>";
+			images += "<div class=\"frame\" style=\"background-image: url('http://" + link[temp] + "'); background-repeat: no-repeat; background-size: contain;\"></div>";
 		}
 		codedlinks = document.createElement('div');
 		codedlinks.innerHTML = /*screen.width + "</br>" + */images;
