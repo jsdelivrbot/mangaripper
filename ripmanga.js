@@ -50,7 +50,7 @@ $.YQL("select * from html where url='" + MANGAHERE_URL + "'", function(data) {
 
 	for (temp = 0; temp < mangapagelinksnumber; temp++) {
 		mangapagelinksarray.push(JSON.stringify(data.query.results.body.section.article.div.div[1].div[2].ul[0].li[temp].span[0].a.href).substring(1, JSON.stringify(data.query.results.body.section.article.div.div[1].div[2].ul[0].li[temp].span[0].a.href).length - 1));
-		addlinks += "<a href=\"javascript:updatenexturl(\"" + mangapagelinksarray[mangapagelinksarray.length - 1] + "\")\">" + JSON.stringify(data.query.results.body.section.article.div.div[1].div[2].ul[0].li[temp].span[0].a.content).substring(19, JSON.stringify(data.query.results.body.section.article.div.div[1].div[2].ul[0].li[temp].span[0].a.content).length - 13) + "</a></br>";
+		addlinks += "<a href=\"javascript:updatenexturl(' + mangapagelinksarray[mangapagelinksarray.length - 1] + "')\">" + JSON.stringify(data.query.results.body.section.article.div.div[1].div[2].ul[0].li[temp].span[0].a.content).substring(19, JSON.stringify(data.query.results.body.section.article.div.div[1].div[2].ul[0].li[temp].span[0].a.content).length - 13) + "</a></br>";
 	}
 	mangapage.innerHTML = addlinks;
 	document.getElementsByTagName('body')[0].appendChild(mangapage);
