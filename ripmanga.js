@@ -41,6 +41,7 @@ $.YQL = function(query, callback) {
 
 //http://james.padolsey.com/snippets/using-yql-with-jsonp/
 function scrapechapters() {
+	MANGAHERE_URL = document.getElementById("mangaherelink").value;
 $.YQL("select * from html where url='" + MANGAHERE_URL + "'", function(data) {
 	mangapage = document.createElement('p');
 
