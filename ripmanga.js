@@ -1,4 +1,4 @@
-MANGAHERE_URL = "http://www.mangahere.co/manga/oyasumi_punpun/";
+MANGAHERE_URL = "";
 CHAPTER = 1;
 mangapagelinksarray = [];
 producedlink = "";
